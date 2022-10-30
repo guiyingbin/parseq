@@ -30,7 +30,6 @@ from strhub.data.module import SceneTextDataModule
 from strhub.models.base import BaseSystem
 from strhub.models.utils import create_model
 
-
 @hydra.main(config_path='configs', config_name='main', version_base='1.2')
 def main(config: DictConfig):
     trainer_strategy = None

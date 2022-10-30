@@ -41,6 +41,16 @@ class CharsetAdapter:
         label = re.sub(self.unsupported, '', label)
         return label
 
+class ChineseCharsetAdapter:
+    """Transforms labels according to the target charset."""
+
+    def __init__(self, target_charset) -> None:
+        super().__init__()
+        self.target_charset = target_charset
+
+    def __call__(self, label):
+
+        return label
 
 class BaseTokenizer(ABC):
 

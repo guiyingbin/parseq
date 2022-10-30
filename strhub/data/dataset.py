@@ -23,7 +23,7 @@ import lmdb
 from PIL import Image
 from torch.utils.data import Dataset, ConcatDataset
 
-from strhub.data.utils import CharsetAdapter
+from strhub.data.utils import CharsetAdapter, ChineseCharsetAdapter
 
 log = logging.getLogger(__name__)
 
@@ -83,6 +83,7 @@ class LmdbDataset(Dataset):
 
     def _preprocess_labels(self, charset, remove_whitespace, normalize_unicode, max_label_len, min_image_dim):
         charset_adapter = CharsetAdapter(charset)
+        # charset_adapter = ChineseCharsetAdapter(charset)
         with self._create_env() as env, env.begin() as txn:
             num_samples = int(txn.get('num-samples'.encode()))
             if self.unlabelled:

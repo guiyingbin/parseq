@@ -32,7 +32,7 @@ def createDataset(inputPath, gtFile, outputPath, checkValid=True):
         checkValid : if true, check the validity of every image
     """
     os.makedirs(outputPath, exist_ok=True)
-    env = lmdb.open(outputPath, map_size=1099511627776)
+    env = lmdb.open(outputPath, map_size=5368709120)
 
     cache = {}
     cnt = 1
@@ -75,4 +75,7 @@ def createDataset(inputPath, gtFile, outputPath, checkValid=True):
 
 
 if __name__ == '__main__':
-    fire.Fire(createDataset)
+    # fire.Fire(createDataset)
+    createDataset(inputPath=r"E:\Dataset\OCR_Dataset\Chinese_dataset\images",
+                  gtFile=r"E:\Dataset\OCR_Dataset\Chinese_dataset\val.txt",
+                  outputPath=r"D:\repository\parseq\data\val")
